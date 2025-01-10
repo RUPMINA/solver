@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Problem Solver</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .problem-area {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Comprehensive Solver</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Mathematical & Scientific Problem Solver</h1>
+        <p class="text-center">Step-by-step solutions for a variety of problems. Empowering self-learners.</p>
+
+        <div class="problem-area">
+            <h3>Select a Topic</h3>
+            <form id="problemSolverForm">
+                <div class="mb-3">
+                    <label for="topic" class="form-label">Choose a category</label>
+                    <select class="form-select" id="topic" required>
+                        <optgroup label="Mathematics">
+                            <option value="compoundInterest">Compound Interest</option>
+                            <option value="growthDepreciation">Growth and Depreciation</option>
+                            <option value="currencyExchange">Currency and Exchange Rate</option>
+                            <option value="areaVolume">Area and Volume</option>
+                            <option value="sequenceSeries">Sequence and Series</option>
+                            <option value="quadraticEquation">Quadratic Equation</option>
+                            <option value="fraction">Fraction</option>
+                            <option value="indices">Indices</option>
+                            <option value="geometry">Geometry</option>
+                            <option value="statistics">Statistics</option>
+                            <option value="probability">Probability</option>
+                            <option value="trigonometry">Trigonometry</option>
+                        </optgroup>
+                        <optgroup label="Science">
+                            <option value="ict">Information and Communication Technology</option>
+                            <option value="livingBeings">Classification of Living Beings</option>
+                            <option value="heredity">Heredity</option>
+                            <option value="physiology">Physiological Structure and Life Process</option>
+                            <option value="natureEnvironment">Nature and Environment</option>
+                            <option value="motionForce">Motion and Force</option>
+                            <option value="pressure">Pressure</option>
+                            <option value="heat">Heat</option>
+                            <option value="wave">Wave</option>
+                            <option value="electricityMagnetism">Electricity and Magnetism</option>
+                            <option value="universe">The Universe</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="inputData" class="form-label">Enter Your Data</label>
+                    <textarea class="form-control" id="inputData" rows="5" placeholder="Provide raw data for the problem..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Solve</button>
+            </form>
+            <div id="solutionResult" class="result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('problemSolverForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const topic = document.getElementById('topic').value;
+            const inputData = document.getElementById('inputData').value;
+            const solutionDiv = document.getElementById('solutionResult');
+            solutionDiv.style.display = 'block';
+
+            let solutionSteps = '';
+
+            switch (topic) {
+                case 'compoundInterest':
+                    solutionSteps = 'Compound Interest solution: Formula = P(1 + r/n)^(nt). Data: ' + inputData;
+                    break;
+                case 'growthDepreciation':
+                    solutionSteps = 'Growth and Depreciation solution with provided data: ' + inputData;
+                    break;
+                case 'quadraticEquation':
+                    solutionSteps = 'Quadratic Equation steps: Use ax² + bx + c = 0. Data: ' + inputData;
+                    break;
+                case 'trigonometry':
+                    solutionSteps = 'Trigonometry problem solving using identities. Data: ' + inputData;
+                    break;
+                case 'motionForce':
+                    solutionSteps = 'Motion and Force: Use F = ma or equations of motion. Data: ' + inputData;
+                    break;
+                case 'electricityMagnetism':
+                    solutionSteps = 'Electricity and Magnetism: Apply Ohm's law or related principles. Data: ' + inputData;
+                    break;
+                case 'universe':
+                    solutionSteps = 'The Universe: Solve astronomical or gravitational problems. Data: ' + inputData;
+                    break;
+                default:
+                    solutionSteps = 'Solution for the selected topic is being generated with data: ' + inputData;
+            }
+
+            solutionDiv.innerHTML = `<strong>Solution:</strong><br>${solutionSteps}`;
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
